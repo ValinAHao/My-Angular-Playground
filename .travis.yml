@@ -1,22 +1,20 @@
 dist: trusty
 sudo: false
-
 language: node_js
 node_js:
-  - '10'
-
+- '10'
 addons:
   chrome: stable
-
 cache:
   directories:
-    - ./node_modules
-
+  - "./node_modules"
 install:
-  - npm install
-
+- npm install
 script:
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-
+- npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+deploy:
+  provider: firebase
+  token:
+    secure: "wqjrtwBKrNwKl84SsTpxba/wdpN9pZfsNJQohtvby4ATpq7yk3vL5yBiucPR76LL1KtXVumMB9vwkAgt7fHBWrKtHzIWpzsrU0FuUPgq5PM44KYl4UB1i/XMui/1a0wPGOkL+UN9+P7bc6naKB4twOMqJKpzbgXK7h9+AhXockGAi43sqDyTcpA44+HUleKF3Uk4Yx8twLju+ffRqoNOayD3uAQhimc56iluXKtkcwyxR6ZregO8sQ/xf/YwcxtzgUHcR/hbB7GkJXmMG3AjEz6ZrYFW2YETpvNPEUt5bo+yg4kpMN9r3QiCkvcGRYJC4eZ9na3iz5YmpCwhebF+l9HwULB46lFqJ1gbjXTUvf9VwPjPrB9Re+sfDjKMAIH1eCTD+m7l03NNxRQFI6Mk3HslJK5lc+SfgDhahLFvtadyIwhnEOd92ZvG9Vu4CelMP8UVSp6rObpM2tpYTwrpJGXzChmcoB8qvL9h6H6fk+VSIJhw4vF/vAyBknU7hssyTILPnwRzP2lNhpLbugJOAKfmOb98YyeV70CqexjjD23Kwkqdt38r8fc28IAr5LO4SaKdacKOBWeuByco+1BhdOBuiviyrxg+YG+v9wQrw+pe63rsKGs4sFtGc5rAERMSUaYJJhipfYvBue3i9JBfLFBK2CrHn3gPMaRKorwcaVI="
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
+- firebase deploy --token $FIREBASE_TOKEN --non-interactive
