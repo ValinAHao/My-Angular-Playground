@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { QuicklinkStrategy } from 'ngx-quicklink';
 
+const routes: Routes = [
+  // { path: '', redirectTo: '/landing', pathMatch: 'full' },
+  // { path: 'landing', component: LandingComponent },
+  // { path: 'question-and-answer', loadChildren: () => import('./modules/demo/demo.module').then(m => m.DemoModule) },
+  // { path: 'login/:environment', component: LoginComponent },
+  // { path: 'login/:environment/:language', component: LoginComponent },
+  // { path: '**', component: PageNotFoundComponent }
+];
 
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, { preloadingStrategy: QuicklinkStrategy });
