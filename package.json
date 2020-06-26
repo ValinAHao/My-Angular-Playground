@@ -4,7 +4,7 @@
   "bundlesize": [
     {
       "path": "dist/My-Angular-Playground/main*.js",
-      "maxSize": "250 kB"
+      "maxSize": "240 kB"
     }
   ],
   "scripts": {
