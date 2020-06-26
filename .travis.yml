@@ -8,9 +8,9 @@ addons:
 cache:
   directories:
   - "./node_modules"
-install:
-- npm install
-script:
+# install:
+# - npm install
+# script:
 # - npm run test:bundle
 # deploy:
 #   provider: firebase
