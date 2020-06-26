@@ -1,6 +1,12 @@
 {
   "name": "my-angular-playground",
   "version": "0.0.0",
+  "bundlesize": [
+    {
+      "path": "dist/My-Angular-Playground/main*.js",
+      "maxSize": "250 kB"
+    }
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,6 +14,7 @@
     "build:stats": "ng build --stats-json",
     "analyze": "webpack-bundle-analyzer dist/My-Angular-Playground/stats.json",
     "test": "ng test",
+    "test:bundle": "bundlesize",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lh": "lighthousebot"
@@ -40,6 +47,7 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
+    "bundlesize": "^0.18.0",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
