@@ -11,4 +11,4 @@ const routes: Routes = [
   // { path: '**', component: PageNotFoundComponent }
 ];
 
-export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, { preloadingStrategy: QuicklinkStrategy });
+export const AppRoutingModule: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes, { preloadingStrategy: QuicklinkStrategy });
