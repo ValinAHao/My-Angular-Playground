@@ -1,11 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { QuicklinkModule } from 'ngx-quicklink';
 
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-
+import { SharedModule } from './shared/shared.module';
+import * as fromApp from './stores/app.reducer';
+import { SampleEffects } from './stores/sample-store/sample.effects';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 const modules = [
   SharedModule
@@ -17,8 +25,13 @@ const modules = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    // QuicklinkModule,
+    QuicklinkModule,
     AppRoutingModule,
+    LazyLoadImageModule,
+    StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([SampleEffects]),
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot(),
     ...modules
   ],
   providers: [],
